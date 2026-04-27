@@ -311,7 +311,7 @@ Definition transportf_subst_tm {C : cwf_data} {Γ Δ : C}
   {A : cwf_ty Δ} {s' s : Γ --> Δ} (p : s' = s)
   (t : cwf_tm A) : cwf_tm (A [[ s' ]])
   := transportf (fun s0 : Γ --> Δ => cwf_tm (A [[ s0 ]]))
-       (pathsinv0 p) ((pr2 (pr21 (cwf_t C) _ _ s)) A t).
+       (!p) ((pr2 (pr21 (cwf_t C) _ _ s)) A t).
 
 Definition cwf_subst_tm_eq {C : cwf_data} {Γ Δ : C}
   {A : cwf_ty Δ} (t : cwf_tm A) {s s' : Γ --> Δ} (p : s = s')
@@ -388,7 +388,7 @@ Proof.
   unfold cwf_subst_ty.
   set (id := functor_id (cwf_t C) Γ).
   exact (fam_mor_eq_pr1 id A).
-Defined.
+Qed.
 
 Proposition cwf_subst_tm_on_id
             {C : cwf_data}
@@ -889,7 +889,7 @@ Definition cwf_unit_subst_tt {C : cwf} {u : cwf_unit C}
 End cwf_unit_accessors.
 
 
-(** Pi Type in CwF  *)
+(** Pi Types in CwFs  *)
 
 Section Pi_For_CwF.
   Context (CC : cwf).
@@ -1069,7 +1069,7 @@ Definition cwf_pi_subst_app {C : cwf} {π : cwf_pi_structure C}
 End cwf_pi_accessors.
 
 
-(**  Sigma Type in CwF  *)
+(**  Sigma Types in CwFs  *)
 
 Section Sigma_For_CwF.
   Context (CC : cwf).

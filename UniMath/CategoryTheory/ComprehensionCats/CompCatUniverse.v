@@ -108,7 +108,7 @@ Proof.
   apply id_disp.
 Defined.
 
-Section universe_coherence.
+Section UniverseCoherence.
   Context (C : comp_cat_with_terminal)
     (universe : comp_cat_universe_data C).
 
@@ -510,7 +510,7 @@ Section Universe_Unit_Closure.
   Coercion unit_unit_code_from_comp_cat {UnivU : comp_cat_universe_closed_unit}
     : univ_unit_code := pr1 UnivU.
 
-  (** accessors for pi codes  *)
+  (** accessors for unit codes  *)
 
   Definition comp_cat_unit_code (UnitU : comp_cat_universe_closed_unit)
     : comp_cat_tm (comp_cat_U []) := pr1 UnitU.
